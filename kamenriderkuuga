@@ -1,0 +1,41 @@
+#包含< iostream >
+#包含《矢量》
+
+使用命名空间std
+
+// 计算最大子段和的函数
+int MaxSumnumber（常量向量《int》和nums ）{
+int n = nums . size（）；// 获取整数序列的长度
+向量《int》DP（n）；// 定义动态规划数组DP【I】表示以第我个元素结尾的子段的最大和
+DP【0】= max（0，nums【0】）；// 初始化数据处理数组的第一个元素
+
+int maxSum = DP【0】；// 用于存储最大子段和的变量
+
+// 从第二个元素开始遍历整数序列
+for(int I = 1；I < n；++i) {
+// 如果DP【I-1】+nums【I】大于0,则更新DP【I】为DP【I-1】+nums【I】，否则更新为0
+DP【I】= max（0，DP【I-1】+nums【I】）；
+// 更新最大子段和
+maxSum = max（maxSum，DP【I】）；
+    }
+
+返回maxSum// 返回最大子段和
+}
+
+int main(){
+int n；
+cout《《“请输入整数个数:";
+CIN》》n；
+
+// 输入整数序列
+向量《int》nums（n）；
+cout《《“请输入整数序列:“《《endl
+for(int I = 0；I < n；++i) {
+CIN》》nums【I】；
+    }
+
+// 计算并输出最大子段和
+cout《《“最大子段和为:“《《MaxSumnumber（nums）《endl；
+
+返回0；
+}
